@@ -1,7 +1,6 @@
 var Dispatcher = require('../dispatcher/dispatcher.js');
 var EventEmitter = require('events').EventEmitter;
 var Assign = require('object-assign');
-var Store = require('../stores/store.js');
 var Constants = require('../constants/constants.js');
 
 var CHANGE_EVENT = 'change';
