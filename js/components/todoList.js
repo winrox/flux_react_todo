@@ -1,6 +1,7 @@
 var React = require('react');
 var Actions = require('../actions/actions.js');
 var Store = require('../stores/store.js');
+var TodoItem = require('./todoItem.js');
 
 var TodoList = React.createClass({
   //gets the current state of todos in store
@@ -14,9 +15,9 @@ var TodoList = React.createClass({
 
 
     return (
-      <div>
-        PLACEHOLDER
-      </div>
+      <ul>
+        <TodoItem />
+      </ul>
     )
   }
 });
