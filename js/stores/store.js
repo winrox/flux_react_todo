@@ -17,6 +17,10 @@ function add(todoText) {
   };
 }
 
+function remove(id) {
+  delete todos[id];
+}
+
 var Store = Assign({}, EventEmitter.prototype, {
   getAllTodos: function() {
     return todos;
@@ -41,15 +45,20 @@ var Store = Assign({}, EventEmitter.prototype, {
     // switch statement looks for a matching action case
     switch(action.actionType) {
       case Constants.ADD_ITEM:
-      todoText = action.item.trim(); //removes white space from beginning and end of todoText
-      if(todoText !== '') {
-        add(todoText); // puts the todo item into the store
-        console.log(todos);
-        Store.emitChange(); // tell the view the store has changed
+        todoText = action.item.trim(); //removes white space from beginning and end of todoText
+        if(todoText !== '') {
+          add(todoText); // puts the todo item into the store
+          console.log(todos);
+          Store.emitChange(); // tell the view the store has changed
+          break;
+        }
+      case Constants.REMOVE_ITEM:
+        todoById = action.item.id;
+        remove(todoById);
+        Store.emitChange();
         break;
 
-        // add more cases for other action types
-      }
+      // add more cases for other action types
       return true; //No errors. Needed by promise in dispatcher.
     }
   })

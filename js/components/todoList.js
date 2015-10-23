@@ -24,9 +24,11 @@ var TodoList = React.createClass({
     }
 
     return (
-      <ul id="todo-list">
-        {todos}
-      </ul>
+      <div>
+        <ul id="todo-list">
+          {todos}
+        </ul>
+      </div>
     )
   }
 });

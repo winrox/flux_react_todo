@@ -10,14 +10,24 @@ var TodoItem = React.createClass({
     }
   },
 
-// need to get this view or a parent listening to the change event i think
   render: function() {
 
     return (
-      <li>
-        {this.state.todo.todoText}
-      </li>
+      <form className="form-inline">
+        <div className="form-group">
+          <li>
+            {this.state.todo.todoText}
+          </li>
+          <button className="destroy btn btn-default" onClick={this.handleDelBtnClick} type="button">
+            Delete
+          </button>
+        </div>
+      </form>
     )
+  },
+
+  handleDelBtnClick: function() {
+    Actions.removeItem(this.state.todo);
   }
 });
 
