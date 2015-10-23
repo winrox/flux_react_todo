@@ -12,26 +12,23 @@ var TodoList = React.createClass({
   },
 
   render: function(){
+    var allTodos = this.state.allTodos;
+    var todos = [];
 
+    if(this.state.allTodos.length < 1) {
+      return null;
+    }
+
+    for (var key in allTodos) {
+      todos.push(<TodoItem key={key} todo={allTodos[key]} />);
+    }
 
     return (
-      <ul>
-        <TodoItem />
+      <ul id="todo-list">
+        {todos}
       </ul>
     )
   }
 });
 
 module.exports = TodoList;
-
-//
-//   var allTodos = this.state.allTodos;
-//  var todos = [];
-//
-// if(this.state.allTodos.length < 1) {
-//   return null;
-// }
-//
-// for (var key in allTodos) {
-//   todos.push(<TodoItem key={key} todo={allTodos[key]} />);
-// }

@@ -13,7 +13,7 @@ function add(todoText) {
   todos[id] = {
     id: id,
     completeTask: false,
-    todoItem: todoText
+    todoText: todoText
   };
 }
 
@@ -40,10 +40,11 @@ var Store = Assign({}, EventEmitter.prototype, {
 
     // switch statement looks for a matching action case
     switch(action.actionType) {
-      case Constants.TODO_ADD:
-      todoText = action.text.trim(); //removes white space from beginning and end of todoText
-      if(text !== '') {
+      case Constants.ADD_ITEM:
+      todoText = action.item.trim(); //removes white space from beginning and end of todoText
+      if(todoText !== '') {
         add(todoText); // puts the todo item into the store
+        console.log(todos);
         Store.emitChange(); // tell the view the store has changed
         break;
 
