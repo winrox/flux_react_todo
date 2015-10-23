@@ -16,7 +16,7 @@ var NewTodo = React.createClass({
       <div className="form-inline">
         <div className="form-group">
           <label htmlFor="newTodo">NEW TODO:</label>
-            <input onChange={this.onChange} value={this.state.value} type="text" className="form-control" id="newTodo" placeholder="tell 'your mom' joke" />
+            <input onChange={this.onChange} type="text" className="form-control" id="newTodo" placeholder="tell 'your mom' joke" />
           <div className="form-group">
             <button onClick={this.handleClick} className="submit" type="button">ADD</button>
           </div>

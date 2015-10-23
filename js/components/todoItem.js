@@ -4,10 +4,20 @@ var Actions = require('../actions/actions.js');
 var TodoList = require('./todoList.js');
 
 var TodoItem = React.createClass({
+  getInitialState: function() {
+    return {
+      todo: this.props.todo
+    }
+  },
 
+// need to get this view or a parent listening to the change event i think
   render: function() {
-    
-    return (<li>todo item placeholder</li>)
+
+    return (
+      <li>
+        {this.state.todo.todoText}
+      </li>
+    )
   }
 });
 

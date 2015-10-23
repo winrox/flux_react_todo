@@ -5,12 +5,27 @@ var NewTodo = require('./newTodo.js');
 var TodoList = require('./todoList.js');
 
 var MainApp = React.createClass({
+  getInitialState: function() {
+    return {
+      todos: {}
+    }
+  },
+
+  componentDidMount: function() {
+    Store.addChangeListener(this.onChange);
+  },
+
+  onChange: function() {
+    this.setState({
+      todos: Store.getAllTodos()
+    });
+  },
 
   render: function() {
     return (
       <div>
       <NewTodo />
-      <TodoList /> 
+      <TodoList />
       </div>
     )
   }
