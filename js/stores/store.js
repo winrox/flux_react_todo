@@ -21,6 +21,11 @@ function remove(id) {
   delete todos[id];
 }
 
+function toggleState(id) {
+  todos[id].completeTask = !todos[id].completeTask;
+  // todos[id].completeTask = todos[id].completeTask ? (false) : (true) // same as above
+}
+
 var Store = Assign({}, EventEmitter.prototype, {
   getAllTodos: function() {
     return todos;
@@ -57,6 +62,12 @@ var Store = Assign({}, EventEmitter.prototype, {
         remove(todoById);
         Store.emitChange();
         break;
+
+      case Constants.TOGGGLE_STATE_COMPLETE:
+          todoById = action.item.id;
+          toggleState(todoById);
+          Store.emitChange();
+          break;
 
       // add more cases for other action types
       return true; //No errors. Needed by promise in dispatcher.

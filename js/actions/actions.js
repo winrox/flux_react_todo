@@ -14,6 +14,13 @@ var Actions = {
       actionType: Constants.REMOVE_ITEM,
       item: item
     })
+  },
+
+  toggleStateComplete: function (item) {
+    Dispatcher.handleViewAction({
+      actionType: Constants.TOGGGLE_STATE_COMPLETE,
+      item: item
+    })
   }
 }
 

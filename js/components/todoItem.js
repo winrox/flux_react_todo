@@ -6,7 +6,7 @@ var TodoList = require('./todoList.js');
 var TodoItem = React.createClass({
   getInitialState: function() {
     return {
-      todo: this.props.todo
+      todo: this.props.todo     
     }
   },
 
@@ -21,6 +21,9 @@ var TodoItem = React.createClass({
           <button className="destroy btn btn-default" onClick={this.handleDelBtnClick} type="button">
             Delete
           </button>
+          <input type="checkbox" onChange={this.handleToggleComplete}>
+            Complete
+          </input>
         </div>
       </form>
     )
@@ -28,6 +31,11 @@ var TodoItem = React.createClass({
 
   handleDelBtnClick: function() {
     Actions.removeItem(this.state.todo);
+  },
+
+  handleToggleComplete: function() {
+    console.log("toggle of check is being heard");
+    Actions.toggleStateComplete(this.props.todo);
   }
 });
 
