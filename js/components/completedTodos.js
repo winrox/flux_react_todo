@@ -30,6 +30,7 @@ var CompletedTodos = React.createClass({
     }
 
     for (var key in allTodos) {
+      //only if todos are marked as complete should they be rendered.
       if(allTodos[key].completeTask == true){
         todos.push(<CompletedTodoItem key={key} todo={allTodos[key]} />);
       }
@@ -37,8 +38,10 @@ var CompletedTodos = React.createClass({
 
     return (
       <div>
-        <p>Completed Todos:</p>
-        <ul>
+        <p>
+          <strong>Completed Todos:</strong>
+        </p>
+        <ul className="list-group">
           {todos}
         </ul>
       </div>

@@ -12,17 +12,15 @@ var CompletedTodoItem = React.createClass({
 
   render: function() {
     return (
-      <div>
-        <li>
-          {this.state.todo.todoText}
-        </li>
-        <button className="destroy btn btn-default" onClick={this.handleDelBtnClick} type="button">
+      <li className="list-group-item">
+        <strong>{this.state.todo.todoText}</strong>
+        <button type="button" className="destroy btn btn-default btn-xs" onClick={this.handleDelBtnClick}>
           Delete
         </button>
-        <input type="checkbox" onChange={this.handleToggleNotComplete}>
+        <input type="checkbox" className="" onChange={this.handleToggleNotComplete}>
           Not Complete
         </input>
-      </div>
+      </li>
     )
   },
 
@@ -32,7 +30,6 @@ var CompletedTodoItem = React.createClass({
 
   handleToggleNotComplete: function() {
     Actions.toggleStateComplete(this.props.todo);
-    // Actions.removeItem(this.state.todo); //deletes it from the collection when I just want to remove it from the view
   }
 });
 

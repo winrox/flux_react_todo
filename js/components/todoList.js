@@ -20,6 +20,7 @@ var TodoList = React.createClass({
     }
 
     for (var key in allTodos) {
+      //allows for any todos marked complete to NOT be rendered.
       if(allTodos[key].completeTask == false) {
         todos.push(<TodoItem key={key} todo={allTodos[key]} />);
       }
@@ -27,7 +28,7 @@ var TodoList = React.createClass({
 
     return (
       <div>
-        <ul id="todo-list">
+        <ul id="list-group">
           {todos}
         </ul>
       </div>

@@ -13,19 +13,15 @@ var TodoItem = React.createClass({
   render: function() {
 
     return (
-      <form className="form-inline">
-        <div className="form-group">
-          <li>
-            {this.state.todo.todoText}
-          </li>
-          <button className="destroy btn btn-default" onClick={this.handleDelBtnClick} type="button">
-            Delete
-          </button>
-          <input type="checkbox" onChange={this.handleToggleComplete}>
-            Complete
-          </input>
-        </div>
-      </form>
+      <li className="list-group-item">
+        <strong>{this.state.todo.todoText}</strong>
+        <button type="button" className="destroy btn btn-default btn-xs" onClick={this.handleDelBtnClick}>
+          Delete
+        </button>
+        <input type="checkbox" className="" onChange={this.handleToggleComplete}>
+          Complete
+        </input>
+      </li>
     )
   },
 
@@ -35,7 +31,6 @@ var TodoItem = React.createClass({
 
   handleToggleComplete: function() {
     Actions.toggleStateComplete(this.props.todo);
-    // Actions.removeItem(this.state.todo); //deletes it from the collection when I just want to remove it from the view
   }
 });
 
