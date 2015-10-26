@@ -1,7 +1,7 @@
 {
-  "name": "flux-todo",
+  "name": "react-flux-todo",
   "version": "0.0.3",
-  "description": "Example Flux architecture.",
+  "description": "simple todo app",
   "repository": "",
   "main": "js/app.js",
   "dependencies": {
