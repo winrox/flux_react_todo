@@ -34,7 +34,6 @@ var NewTodo = React.createClass({
 
   // create an action based on the current state
   handleClick: function() {
-    console.log(this.state.value);
     Actions.addItem(this.state.value);
     this.setState({value: ''});
   }

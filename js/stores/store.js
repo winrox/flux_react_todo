@@ -22,7 +22,7 @@ function remove(id) {
 }
 
 function toggleState(id) {
-  todos[id].completeTask = !todos[id].completeTask;
+  todos[id].completeTask = !todos[id].completeTask; // "!" meaning opposite of here since boolean is used.
   // todos[id].completeTask = todos[id].completeTask ? (false) : (true) // same as above
 }
 
@@ -63,7 +63,7 @@ var Store = Assign({}, EventEmitter.prototype, {
         Store.emitChange();
         break;
 
-      case Constants.TOGGGLE_STATE_COMPLETE:
+      case Constants.TOGGLE_STATE_COMPLETE:
           todoById = action.item.id;
           toggleState(todoById);
           Store.emitChange();

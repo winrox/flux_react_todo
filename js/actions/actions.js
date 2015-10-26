@@ -18,7 +18,7 @@ var Actions = {
 
   toggleStateComplete: function (item) {
     Dispatcher.handleViewAction({
-      actionType: Constants.TOGGGLE_STATE_COMPLETE,
+      actionType: Constants.TOGGLE_STATE_COMPLETE,
       item: item
     })
   }

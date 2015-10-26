@@ -20,7 +20,9 @@ var TodoList = React.createClass({
     }
 
     for (var key in allTodos) {
-      todos.push(<TodoItem key={key} todo={allTodos[key]} />);
+      if(allTodos[key].completeTask == false) {
+        todos.push(<TodoItem key={key} todo={allTodos[key]} />);
+      }
     }
 
     return (

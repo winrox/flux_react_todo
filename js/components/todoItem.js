@@ -6,7 +6,7 @@ var TodoList = require('./todoList.js');
 var TodoItem = React.createClass({
   getInitialState: function() {
     return {
-      todo: this.props.todo     
+      todo: this.props.todo
     }
   },
 
@@ -34,8 +34,8 @@ var TodoItem = React.createClass({
   },
 
   handleToggleComplete: function() {
-    console.log("toggle of check is being heard");
     Actions.toggleStateComplete(this.props.todo);
+    // Actions.removeItem(this.state.todo); //deletes it from the collection when I just want to remove it from the view
   }
 });
 
