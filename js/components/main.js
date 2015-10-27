@@ -26,8 +26,8 @@ var MainApp = React.createClass({
     return (
       <div>
         <NewTodo />
-        <TodoList todos={this.state.todos}/>
-        <CompletedTodos todos={this.state.todos}/>
+        <TodoList todos={this.state.todos} filterCompleted={false} />
+        <TodoList todos={this.state.todos} filterCompleted={true} />
       </div>
     )
   }

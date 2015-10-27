@@ -5,15 +5,22 @@ var TodoList = require('./todoList.js');
 
 var TodoItem = React.createClass({
   render: function() {
+    var cssClass = "list-group-item";
+    var checkboxText = "Complete"
+
+    if(this.props.todo.completeTask){
+      cssClass+= " disabled";
+      checkboxText = "Not Completed";
+    }
 
     return (
-      <li className="list-group-item">
+      <li className={cssClass}>
         <strong>{this.props.todo.todoText}</strong>
         <button type="button" className="destroy btn btn-default btn-xs" onClick={this.handleDelBtnClick}>
           Delete
         </button>
         <input type="checkbox" className="" onChange={this.handleToggleComplete}>
-          Complete
+          {checkboxText}
         </input>
       </li>
     )

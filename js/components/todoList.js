@@ -14,6 +14,7 @@ var TodoList = React.createClass({
   render: function(){
     var allTodos = this.props.todos;
     var todos = [];
+    var completedTodos = [];
 
     if(allTodos < 1) {
       return null;
@@ -21,7 +22,7 @@ var TodoList = React.createClass({
 
     for (var key in allTodos) {
       //allows for any todos marked complete to NOT be rendered.
-      if(allTodos[key].completeTask == false) {
+      if(allTodos[key].completeTask == this.props.filterCompleted) {
         todos.push(<TodoItem key={key} todo={allTodos[key]} />);
       }
     }
