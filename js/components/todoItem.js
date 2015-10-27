@@ -4,17 +4,11 @@ var Actions = require('../actions/actions.js');
 var TodoList = require('./todoList.js');
 
 var TodoItem = React.createClass({
-  getInitialState: function() {
-    return {
-      todo: this.props.todo
-    }
-  },
-
   render: function() {
 
     return (
       <li className="list-group-item">
-        <strong>{this.state.todo.todoText}</strong>
+        <strong>{this.props.todo.todoText}</strong>
         <button type="button" className="destroy btn btn-default btn-xs" onClick={this.handleDelBtnClick}>
           Delete
         </button>
@@ -26,7 +20,7 @@ var TodoItem = React.createClass({
   },
 
   handleDelBtnClick: function() {
-    Actions.removeItem(this.state.todo);
+    Actions.removeItem(this.props.todo);
   },
 
   handleToggleComplete: function() {

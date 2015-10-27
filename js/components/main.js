@@ -26,8 +26,8 @@ var MainApp = React.createClass({
     return (
       <div>
         <NewTodo />
-        <TodoList />
-        <CompletedTodos />
+        <TodoList todos={this.state.todos}/>
+        <CompletedTodos todos={this.state.todos}/>
       </div>
     )
   }

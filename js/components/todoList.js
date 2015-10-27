@@ -4,18 +4,18 @@ var Store = require('../stores/store.js');
 var TodoItem = require('./todoItem.js');
 
 var TodoList = React.createClass({
-  //gets the current state of todos in store
-  getInitialState: function() {
-    return {
-      allTodos: Store.getAllTodos()
-    }
-  },
+  // //gets the current state of todos in store
+  // getInitialState: function() {
+  //   return {
+  //     allTodos: this.props.todos
+  //   }
+  // },
 
   render: function(){
-    var allTodos = this.state.allTodos;
+    var allTodos = this.props.todos;
     var todos = [];
 
-    if(this.state.allTodos.length < 1) {
+    if(allTodos < 1) {
       return null;
     }
 

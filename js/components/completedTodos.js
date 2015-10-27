@@ -18,7 +18,6 @@ var CompletedTodos = React.createClass({
     this.setState({
       allTodos: Store.getAllTodos()
     });
-    this.render();
   },
 
   render: function() {
