@@ -4,27 +4,11 @@ var Store = require('../stores/store.js');
 var CompletedTodoItem = require('./completedTodoItem.js');
 
 var CompletedTodos = React.createClass({
-  getInitialState: function() {
-    return {
-      allTodos: Store.getAllTodos()
-    }
-  },
-
-  componentDidMount: function() {
-    Store.addChangeListener(this.onChange);
-  },
-
-  onChange: function() {
-    this.setState({
-      allTodos: Store.getAllTodos()
-    });
-  },
-
   render: function() {
-    var allTodos = this.state.allTodos;
+    var allTodos = this.props.todos;
     var todos = [];
 
-    if(this.state.allTodos.length < 1) {
+    if(allTodos < 1) {
       return null;
     }
 
